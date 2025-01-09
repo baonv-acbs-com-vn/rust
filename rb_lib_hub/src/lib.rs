@@ -1,4 +1,4 @@
-use user::{User, Player};
+use user::User;
 
 pub mod user;
 
@@ -70,15 +70,15 @@ mod tests {
         let mut hub: Hub = Hub::new();
         
         // Create users and add them to the hub
-        let mut user1 = User::new("John", 1);
+        let mut user1 = User::new("John");
         user1.vote = Some(Vote::A);
         hub.add(&mut user1);
 
-        let mut user2 = User::new("user1", 2);
+        let mut user2 = User::new("user1");
         user2.vote = Some(Vote::A);
         hub.add(&mut user2);
 
-        let mut user3 = User::new("user2", 3);
+        let mut user3 = User::new("user2");
         user3.vote = Some(Vote::B);
         hub.add(&mut user3);
 
@@ -97,7 +97,7 @@ mod tests {
     #[test]
     fn change_vote() {
         let mut hub: Hub = Hub::new();
-        let mut user1 = User::new("user1", 1);
+        let mut user1 = User::new("user1");
         user1.vote(Vote::A);
         hub.add(&mut user1);
         hub.run();
